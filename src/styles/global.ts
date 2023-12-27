@@ -22,6 +22,7 @@ export default createGlobalStyle`
         font-family: 'Roboto Slab', serif;
         font-size: 1.6rem;
         outline: none;
+        border: none;
     }
 
     a{
