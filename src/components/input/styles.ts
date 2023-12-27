@@ -7,4 +7,5 @@ export const Container = styled.input`
     border-radius: 1rem;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
     padding-left: 2rem;
+    color: ${({theme}) => theme.COLORS.WHITE};
 `
