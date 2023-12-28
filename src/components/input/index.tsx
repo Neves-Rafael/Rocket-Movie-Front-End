@@ -1,14 +1,15 @@
-import { ReactElement } from "react"
-import {Container} from "./styles"
+import { IconType } from "react-icons";
+import { Container } from "./styles";
 
-export interface InputProps{
-    icon: ReactElement,
-    placeholder: string
+export interface InputProps {
+  icon: IconType;
+  placeholder: string;
 }
-export function Input({placeholder, icon:Icon, ...rest}: InputProps){
-    return(
-        <Container >
-            {Icon && <Icon size={20}/>}
-        </Container>
-    )
+export function Input({ placeholder, icon: Icon, ...rest }: InputProps) {
+  return (
+    <Container>
+      {Icon && <Icon size={20} />}
+      <input placeholder={placeholder} {...rest}/>
+    </Container>
+  );
 }
