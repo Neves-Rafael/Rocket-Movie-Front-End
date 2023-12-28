@@ -7,6 +7,7 @@ export const Container = styled.header`
   gap: 6.4rem;
   align-items: center;
   border-bottom: solid 1px ${({ theme }) => theme.COLORS.GRAY_300};
+  padding: 0 15%;
 
   > h2 {
     font-size: 2.4rem;
