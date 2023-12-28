@@ -1,6 +1,6 @@
 import { Container, NewMovie, ScrollY } from "./styles";
 import { Header } from "../../components/header";
-import { CardFilm } from "../../components/CardFilm";
+import { CardFilm } from "../../components/cardFilm";
 import { Button } from "../../components/button";
 
 export function Films() {
