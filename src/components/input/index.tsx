@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 import { Container } from "./styles";
 
 export interface InputProps {
-  icon: IconType;
+  icon?: IconType;
   placeholder: string;
 }
 export function Input({ placeholder, icon: Icon, ...rest }: InputProps) {

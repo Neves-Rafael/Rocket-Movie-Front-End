@@ -2,6 +2,7 @@ import { Container, NewMovie, ScrollY } from "./styles";
 import { Header } from "../../components/header";
 import { CardFilm } from "../../components/cardFilm";
 import { Button } from "../../components/button";
+import { FiPlus } from "react-icons/fi";
 
 export function Films() {
   return (
@@ -9,7 +10,7 @@ export function Films() {
       <Header />
       <NewMovie>
         <h2>Filmes</h2>
-        <Button title="+ Adicionar" />
+        <Button title="Novo filme" icon={FiPlus} />
       </NewMovie>
       <ScrollY>
         <CardFilm

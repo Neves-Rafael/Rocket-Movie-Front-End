@@ -1,9 +1,14 @@
 import { Container } from "./styles";
+import { IconType } from "react-icons";
 
-interface ButtonProps{
-  title: string
+interface ButtonProps {
+  title: string;
+  icon?: IconType;
 }
 
-export function Button({title} : ButtonProps) {
-  return <Container type="button">{title}</Container>;
+export function Button({ title, icon: Icon }: ButtonProps) {
+  return <Container >
+    {Icon ? Icon && <Icon  size={20}/> : ""}
+    <button type="button">{title}</button>
+    </Container>;
 }
