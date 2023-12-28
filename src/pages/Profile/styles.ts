@@ -1,27 +1,41 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > header {
+    height: 14rem;
     width: 100%;
-    padding: 0 15%;
-`
-
-export const NewMovie = styled.div`
+    background-color: rgba(255, 133, 155, 0.05);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 4.8rem;
-    margin-bottom: 3.8rem;
+    padding-left: 15%;
+  }
+`;
 
-    >button{
-        width: 21rem;
-        color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    }
-`
+export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.8rem;
+  width: 34rem;
 
-export const ScrollY = styled.div`
-display: flex;
-flex-direction: column;
-    gap: 2.4rem;
-    overflow-y: auto;
-    max-height: calc(100vh - 25rem);
-`
+  margin-top: -9rem;
+
+  >img {
+    height: 18rem;
+    width: 18rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+  }
+`;
