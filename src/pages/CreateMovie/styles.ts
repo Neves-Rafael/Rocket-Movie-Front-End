@@ -41,4 +41,4 @@ export const Section = styled.section`
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
         color: ${({ theme }) => theme.COLORS.RED};
     }
-`
+`;
