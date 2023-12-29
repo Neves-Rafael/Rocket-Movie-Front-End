@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { Routes } from "./routes";
-// import { CreateMovie } from "./pages/CreateMovie";
 
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "./styles/global";

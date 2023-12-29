@@ -4,9 +4,16 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+
   > img {
     width: 60%;
     object-fit: cover;
+  }
+
+  @media (max-width: 1000px) {
+    > img {
+      display: none;
+    }
   }
 `;
 
@@ -16,6 +23,12 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 export const Section = styled.section`
@@ -51,5 +64,13 @@ export const Section = styled.section`
     width: 100%;
     text-align: center;
     color: ${({ theme }) => theme.COLORS.RED};
+  }
+
+
+  @media (max-width:1000px){
+    width: 80%;
+    >div h1{
+      font-size: 4rem;
+    }
   }
 `;
