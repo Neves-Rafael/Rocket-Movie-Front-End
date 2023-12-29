@@ -31,6 +31,11 @@ export const Section = styled.section`
     flex-direction: column;
     gap: 0.8rem;
   }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    margin-top: -5rem;
+  }
 `;
 
 export const Avatar = styled.div`
@@ -70,6 +75,19 @@ export const Avatar = styled.div`
       width: 2rem;
       height: 2rem;
       color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    }
+  }
+
+  @media (max-width: 768px) {
+    >img {
+      width: 10rem;
+      height: 10rem;
+    }
+
+    >label{
+      width: 3.8rem;
+      height: 3.8rem;
+      right: 30%;
     }
   }
 `;
