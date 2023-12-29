@@ -3,13 +3,14 @@ import { Header } from "../../components/header";
 import { CardFilm } from "../../components/cardFilm";
 import { Button } from "../../components/button";
 import { FiPlus } from "react-icons/fi";
+import { Title } from "../../components/title";
 
 export function Films() {
   return (
     <Container>
       <Header />
       <NewMovie>
-        <h2>Filmes</h2>
+        <Title title="Filmes" />
         <Button title="Novo filme" icon={FiPlus} />
       </NewMovie>
       <ScrollY>

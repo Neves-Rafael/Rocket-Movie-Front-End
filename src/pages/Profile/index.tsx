@@ -1,22 +1,31 @@
-import { Container, Section } from "./styles";
+import { Container, Section, Avatar } from "./styles";
 import { Input } from "../../components/input";
 import { Button } from "../../components/button";
+import { BackButton } from "../../components/backButton";
+import { FiCamera } from "react-icons/fi";
 
 export function Profile() {
   return (
     <Container>
-        <header>
-            <p>← Voltar</p>
-        </header>
+      <header>
+        <BackButton />
+
+      </header>
       <Section>
-        <img src="https://source.unsplash.com/random" alt="" />
+        <Avatar>
+          <img src="https://source.unsplash.com/random" alt="" />
+          <label htmlFor="avatar">
+            <FiCamera />
+            <input type="file" id="avatar" />
+          </label>
+        </Avatar>
         <div>
-            <Input placeholder="Nome do usuário" />
-            <Input placeholder="E-mail do usuário" />
+          <Input placeholder="Nome do usuário" />
+          <Input placeholder="E-mail do usuário" />
         </div>
         <div>
-            <Input placeholder="Senha Atual" />
-            <Input placeholder="Nova Senha" />
+          <Input placeholder="Senha Atual" />
+          <Input placeholder="Nova Senha" />
         </div>
         <Button title="Salvar" />
       </Section>
