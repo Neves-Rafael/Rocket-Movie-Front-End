@@ -2,7 +2,8 @@ import { Button } from "../../components/button";
 import { Input } from "../../components/input";
 
 import { Container, Content, Section } from "./styles";
-import {FiMail, FiLock, FiUser} from "react-icons/fi"
+import { FiMail, FiLock, FiUser } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export function SignUp() {
   return (
@@ -20,7 +21,9 @@ export function SignUp() {
             <Input placeholder="Senha" icon={FiLock} />
           </div>
           <Button title="Cadastrar" />
-          <p className="create-account">← Voltar para o login</p>
+          <Link to={"/"} className="create-account">
+            ← Voltar para o login
+          </Link>
         </Section>
       </Content>
       <img src="https://source.unsplash.com/random" alt="" />
