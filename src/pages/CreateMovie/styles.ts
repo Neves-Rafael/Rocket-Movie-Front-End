@@ -31,10 +31,19 @@ export const Section = styled.section`
   }
 
   .marks {
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    padding: 1.6rem;
-    border-radius: 1.6rem;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+    border-radius: 1rem;
     display: flex;
+    align-items: center;
+    padding: 1.6rem;
+
+    > button {
+      width: auto;
+    }
+
+    > button input {
+      width: 10rem;
+    }
   }
 
   .buttons div:nth-child(1) {

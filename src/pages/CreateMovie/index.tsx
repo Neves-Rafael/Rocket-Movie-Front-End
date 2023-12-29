@@ -20,7 +20,8 @@ export function CreateMovie() {
         <textarea placeholder="Sua analise" />
         <h3>Marcadores</h3>
         <div className="marks">
-          <Mark title="Drama" />
+          <Mark value="Drama" />
+          <Mark isNew  />
         </div>
         <div className="buttons">
           <Button title="Excluir Filme" />
