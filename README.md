@@ -70,9 +70,9 @@ $ configure o package.json para utilizar o vite.
 
 <p align="center">As seguintes ferramentas foram usadas na construção do projeto:<br/>
 <br/>  
-Typescript - React - Styled-Components
+Typescript - React - StyledComponents
 <br/>
-React-Icon - React-Router-Dom - Vite
+ReactIcon - ReactRouterDom - Vite
 <br/>
 <br/>
 
