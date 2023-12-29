@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface ContainerProps {
-  isnew?: string;
+  $isnew?: string;
 }
 
 export const Container = styled.button<ContainerProps>`
@@ -9,13 +9,13 @@ export const Container = styled.button<ContainerProps>`
   display: flex;
   align-items: center;
 
-  background-color: ${({ theme, isnew }) =>
-    isnew === "true" ? "transparent" : theme.COLORS.BACKGROUND_900};
+  background-color: ${({ theme, $isnew }) =>
+    $isnew === "true" ? "transparent" : theme.COLORS.BACKGROUND_900};
 
   color: ${({ theme }) => theme.COLORS.GRAY_300};
 
-  border: ${({ theme, isnew }) =>
-    isnew === "true" ? `1px dashed ${theme.COLORS.GRAY_300}` : "none"};
+  border: ${({ theme, $isnew }) =>
+    $isnew === "true" ? `1px dashed ${theme.COLORS.GRAY_300}` : "none"};
 
   border-radius: 1rem;
   padding-right: 1.6rem;

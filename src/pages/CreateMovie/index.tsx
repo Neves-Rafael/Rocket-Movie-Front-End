@@ -21,7 +21,7 @@ export function CreateMovie() {
         <h3>Marcadores</h3>
         <div className="marks">
           <Mark value="Drama" />
-          <Mark isnew="true"  placeholder="New tag" />
+          <Mark $isnew="true"  placeholder="New tag" />
         </div>
         <div className="buttons">
           <Button title="Excluir Filme" />
