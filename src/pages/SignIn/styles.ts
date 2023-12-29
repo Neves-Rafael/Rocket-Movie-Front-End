@@ -35,7 +35,7 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
-  width: 34rem;
+  max-width: 34rem;
 
   > div h1 {
     font-size: 4.8rem;

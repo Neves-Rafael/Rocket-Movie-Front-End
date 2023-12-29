@@ -38,4 +38,23 @@ export const Container = styled.header`
   > div div p:nth-child(2) {
     color: ${({ theme }) => theme.COLORS.GRAY_300};
   }
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    height: auto;
+    padding: 5rem 5%;
+
+    >:nth-child(1){
+      display: none;
+    }
+
+    >:nth-child(2){
+      order: 2;
+      margin-top: 2rem;
+    }
+
+
+  }
 `;
