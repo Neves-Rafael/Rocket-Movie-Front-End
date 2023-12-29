@@ -3,19 +3,20 @@ import { FiPlus, FiX } from "react-icons/fi";
 
 interface MarkProps {
   value?: string;
-  isNew?: boolean;
+  placeholder?: string;
   onClick?: () => void;
+  isnew?: string;
 }
 
-export function Mark({ isNew, value, onClick, ...rest }: MarkProps) {
+export function Mark({ isnew, value, placeholder, onClick, ...rest }: MarkProps) {
   return (
-    <Container isNew={isNew}>
-      <input type="text" value={value} readOnly={!isNew} {...rest} />
+    <Container isnew={isnew}>
+      <input type="text" value={value} readOnly={!isnew} placeholder={placeholder} {...rest}/>
       <button
         onClick={onClick}
         type="button"
-        className={isNew ? "button-add" : "button-delete"}>
-        {isNew ? <FiPlus /> : <FiX />}
+        className={isnew === "true" ? "button-add" : "button-delete"}>
+        {isnew ? <FiPlus /> : <FiX />}
       </button>
     </Container>
   );
