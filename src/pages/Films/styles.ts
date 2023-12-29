@@ -16,6 +16,15 @@ export const NewMovie = styled.div`
     width: 21rem;
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
+
+  @media (max-width: 1100px) {
+    padding: 0 5%;
+
+    > a div {
+      width: 15rem;
+      height: 4rem;
+    }
+  }
 `;
 
 export const ScrollY = styled.div`
@@ -32,5 +41,9 @@ export const ScrollY = styled.div`
     &:hover{
       color: ${({ theme }) => theme.COLORS.RED};
     }
+  }
+
+  @media (max-width: 1100px) {
+    padding: 0 5%;
   }
 `;

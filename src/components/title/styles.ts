@@ -5,4 +5,8 @@ export const Container = styled.h1`
     font-weight: 500;
     line-height: normal;
     color: ${({ theme }) => theme.COLORS.WHITE};
+
+    @media (max-width: 1100px) {
+        font-size: 3rem;
+    }
 `
