@@ -34,7 +34,7 @@
 </p>
 
 <h3 align="center">⭐ Visualizar as Avaliações!</h3>
-<p align="center">Nesta seção estará as ultimas avaliações com um breve resumo das informações.</p>
+<p align="center">Nesta seção mostra a vizualização da avaliação selecionada com analise completa indicando quando foi feita e por quem.</p>
 <br/>
 <br/>
 <p align="center">
