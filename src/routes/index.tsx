@@ -5,8 +5,8 @@ import { AuthRouter } from "./auth.routes";
 export function Routes() {
   return (
     <BrowserRouter>
-      {/* <AppRoutes /> */}
-      <AuthRouter />
+      <AppRoutes />
+      {/* <AuthRouter /> */}
     </BrowserRouter>
   );
 }

@@ -3,13 +3,15 @@ import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 import { BackButton } from "../../components/backButton";
 import { FiCamera } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export function Profile() {
   return (
     <Container>
       <header>
-        <BackButton />
-
+        <Link to="/">
+          <BackButton />
+        </Link>
       </header>
       <Section>
         <Avatar>

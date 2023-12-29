@@ -2,12 +2,16 @@ import { Container, Section } from "./styles";
 import { Header } from "../../components/header";
 import { Star } from "../../components/stars";
 import { Tag } from "../../components/Tag";
+import { BackButton } from "../../components/backButton";
+
+import { Link } from "react-router-dom";
 
 export function Preview() {
   return (
     <Container>
       <Header />
-      <p>← Voltar</p>
+      <Link to={"/"}>
+      <BackButton /></Link>
       <Section>
         <div className="movie">
           <h2>Interstellar</h2>

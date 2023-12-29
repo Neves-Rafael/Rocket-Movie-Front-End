@@ -6,12 +6,16 @@ import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 import { Mark } from "../../components/mark";
 
+import { Link } from "react-router-dom";
+
 export function CreateMovie() {
   return (
     <Container>
       <Header />
       <Section>
-        <BackButton />
+        <Link to={"/"}>
+          <BackButton />
+        </Link>
         <Title title="Novo Filme"></Title>
         <div>
           <Input placeholder="Tiulo" />
@@ -21,7 +25,7 @@ export function CreateMovie() {
         <h3>Marcadores</h3>
         <div className="marks">
           <Mark value="Drama" />
-          <Mark $isnew="true"  placeholder="New tag" />
+          <Mark $isnew="true" placeholder="New tag" />
         </div>
         <div className="buttons">
           <Button title="Excluir Filme" />

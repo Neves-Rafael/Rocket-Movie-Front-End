@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-  > p {
-    color: ${({ theme }) => theme.COLORS.RED};
+  > a div{
     margin-top: 4rem;
     margin-bottom: 2.4rem;
     margin-left: 15%;

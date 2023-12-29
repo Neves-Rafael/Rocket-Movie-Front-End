@@ -12,7 +12,7 @@ export const NewMovie = styled.div`
   margin-top: 4.8rem;
   margin-bottom: 3.8rem;
 
-  > div {
+  > a div {
     width: 21rem;
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
@@ -25,4 +25,12 @@ export const ScrollY = styled.div`
   gap: 2.4rem;
   overflow-y: auto;
   max-height: calc(100vh - 25rem);
+
+  >a{
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    
+    &:hover{
+      color: ${({ theme }) => theme.COLORS.RED};
+    }
+  }
 `;
