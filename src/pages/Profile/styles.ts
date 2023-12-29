@@ -79,12 +79,12 @@ export const Avatar = styled.div`
   }
 
   @media (max-width: 768px) {
-    >img {
+    > img {
       width: 10rem;
       height: 10rem;
     }
 
-    >label{
+    > label {
       width: 3.8rem;
       height: 3.8rem;
       right: 30%;

@@ -53,4 +53,22 @@ export const Section = styled.section`
       color: ${({ theme }) => theme.COLORS.RED};
     }
   }
+
+  @media (min-width: 1000px) {
+    padding: 0 5% 10rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 5% 10rem;
+
+    > div,
+    .buttons {
+      flex-direction: column;
+    }
+
+    .marks{
+      flex-direction:row;
+      gap: 1rem;
+    }
+  }
 `;

@@ -3,10 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-  > a div{
+  > a div {
     margin-top: 4rem;
     margin-bottom: 2.4rem;
     margin-left: 15%;
+  }
+
+  @media (max-width: 768px) {
+    > a div {
+      margin-left: 5%;
+    }
   }
 `;
 
@@ -50,9 +56,22 @@ export const Section = styled.section`
     }
   }
 
-  .tags{
+  .tags {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     margin-bottom: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 5% 10rem;
+
+
+    .movie{
+      flex-direction: column;
+    }
+
+    .publication{
+      flex-direction: column;
+    }
   }
 `;

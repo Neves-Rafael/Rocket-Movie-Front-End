@@ -11,7 +11,8 @@ export function Preview() {
     <Container>
       <Header />
       <Link to={"/"}>
-      <BackButton /></Link>
+        <BackButton />
+      </Link>
       <Section>
         <div className="movie">
           <h2>Interstellar</h2>
