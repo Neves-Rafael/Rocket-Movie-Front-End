@@ -9,7 +9,7 @@ export const Container = styled.header`
   border-bottom: solid 1px ${({ theme }) => theme.COLORS.GRAY_300};
   padding: 0 15%;
 
-  > h2 {
+  > a h2 {
     font-size: 2.4rem;
     color: ${({ theme }) => theme.COLORS.RED};
     min-width: 17rem;
