@@ -1,7 +1,12 @@
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./app.routes";
+import { AuthRouter } from "./auth.routes";
+
 export function Routes() {
   return (
-    <div>
-      <p>Hello World!</p>
-    </div>
+    <BrowserRouter>
+      {/* <AppRoutes /> */}
+      <AuthRouter />
+    </BrowserRouter>
   );
 }
