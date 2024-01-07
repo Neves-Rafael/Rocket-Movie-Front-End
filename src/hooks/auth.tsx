@@ -1,10 +1,12 @@
-import { createContext, useContext } from "react";
+import { ReactNode, createContext, useContext } from "react";
 
 export const AuthContext = createContext({});
 
+interface childrenProps{
+    children: ReactNode
+}
 
-
-function AuthProvider({ children }){
+function AuthProvider({ children }:childrenProps){
     return (
         <AuthContext.Provider value={{ email: "rafael@gmail.com", name: "rafael" }}>
         {children}
