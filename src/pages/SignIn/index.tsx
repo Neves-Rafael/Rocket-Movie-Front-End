@@ -1,17 +1,16 @@
 import { Container, Content, Section } from "./styles";
 import { Button } from "../../components/button";
 import { Input } from "../../components/input";
-import {FiMail, FiLock} from "react-icons/fi"
+import { FiMail, FiLock } from "react-icons/fi";
 
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { MyContext } from "../../myContext";
+
+import { useAuth } from "../../hooks/auth";
 
 
 export function SignIn() {
-
-  const data = useContext(MyContext)
-  console.log(data)
+  const data = useAuth();
+  console.log(data);
 
   return (
     <Container>
@@ -24,10 +23,12 @@ export function SignIn() {
           <h2>Faça seu Login</h2>
           <div className="form-signin">
             <Input placeholder="E-mail" icon={FiMail} />
-            <Input placeholder="Senha" icon={FiLock}/>
+            <Input placeholder="Senha" icon={FiLock} />
           </div>
           <Button title="Sign In" />
-          <Link to={"/register"} className="create-account">Criar Conta</Link>
+          <Link to={"/register"} className="create-account">
+            Criar Conta
+          </Link>
         </Section>
       </Content>
       <img src="https://source.unsplash.com/random" alt="" />
