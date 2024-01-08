@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 import { useState } from "react";
 
+import avatarPlaceholder from "../../assets/placeholder.jpg"
+
 export function Profile() {
   const { user, updateProfile } = useAuth();
 
@@ -16,6 +18,7 @@ export function Profile() {
   const [passwordOld, setPasswordOld] = useState("");
   const [passwordNew, setPasswordNew] = useState("");
 
+  
   const [avatar, setAvatar] = useState(user.avatar);
   const [avatarFile, setAvatarFile] = useState(null);
 
@@ -26,7 +29,7 @@ export function Profile() {
       new_password: passwordNew,
       old_password: passwordOld,
     };
-    await updateProfile({ user });
+    await updateProfile({ user, avatarFile });
   }
 
   function handleChangeAvatar(event){
