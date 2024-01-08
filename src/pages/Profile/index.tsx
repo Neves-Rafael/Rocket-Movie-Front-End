@@ -30,7 +30,7 @@ export function Profile() {
   }
 
   function handleChangeAvatar(event){
-    const file = event.target.file[0];
+    const file = event.target.files[0];
     setAvatarFile(file);
 
     const imagePreview = URL.createObjectURL(file);
