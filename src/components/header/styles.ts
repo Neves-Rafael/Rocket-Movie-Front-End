@@ -35,8 +35,14 @@ export const Container = styled.header`
     width: max-content;
   }
 
-  > div div p:nth-child(2) {
+  > div div button {
     color: ${({ theme }) => theme.COLORS.GRAY_300};
+    cursor: pointer;
+    background: none;
+
+    &:hover {
+      color: ${({ theme }) => theme.COLORS.RED};
+    }
   }
 
   @media (max-width: 1100px) {

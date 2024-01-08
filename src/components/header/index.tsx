@@ -1,9 +1,13 @@
 import { Container } from "./styles";
+import { useAuth } from "../../hooks/auth";
 import { Input } from "../input";
 
 import { Link } from "react-router-dom";
 
 export function Header() {
+
+  const { signOut } = useAuth();
+
   return (
     <Container>
       <Link to={"/"}>
@@ -13,7 +17,7 @@ export function Header() {
       <div>
         <div>
           <p>Nome do usuário</p>
-          <p>Sair</p>
+          <button onClick={signOut}>Sair</button>
         </div>
         <Link to={"/profile"}>
           <img src="https://source.unsplash.com/random" alt="" />
