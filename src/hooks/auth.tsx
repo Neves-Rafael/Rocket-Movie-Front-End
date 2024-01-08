@@ -27,7 +27,7 @@ function AuthProvider({ children }: signInProps) {
       localStorage.setItem("@RocketMovies:user", JSON.stringify(user));
       localStorage.setItem("@RocketMovies:token", token);
 
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       setData({ token, user });
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
@@ -50,7 +50,7 @@ function AuthProvider({ children }: signInProps) {
     const user = localStorage.getItem("@RocketMovies:user");
 
     if (token && user) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       setData({ token, user: JSON.parse(user) });
     }
   }, []);
