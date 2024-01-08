@@ -24,8 +24,8 @@ function AuthProvider({ children }: signInProps) {
       const response = await api.post("/sessions", { email, password });
       const { token, user } = response.data;
 
-      localStorage.setItem("@RocketMovies:user", JSON.stringify(user));
-      localStorage.setItem("@RocketMovies:token", token);
+      localStorage.setItem("@rocketMovies:user", JSON.stringify(user));
+      localStorage.setItem("@rocketMovies:token", token);
 
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       setData({ token, user });
@@ -38,16 +38,32 @@ function AuthProvider({ children }: signInProps) {
     }
   }
 
-  function signOut(){
+  function signOut() {
     localStorage.removeItem("@RocketMovies:token");
     localStorage.removeItem("@RocketMovies:user");
 
     setData({});
   }
 
+  async function updateProfile({ user }) {
+    try {
+      await api.put("/users", user);
+      localStorage.setItem("@rocketMovies:user", JSON.stringify(user));
+
+      setData({ user, token: data.token });
+      alert("Perfil atualizado com sucesso");
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert("Não foi possível atualizar o perfil");
+      }
+    }
+  }
+
   useEffect(() => {
-    const token = localStorage.getItem("@RocketMovies:token");
-    const user = localStorage.getItem("@RocketMovies:user");
+    const token = localStorage.getItem("@rocketMovies:token");
+    const user = localStorage.getItem("@rocketMovies:user");
 
     if (token && user) {
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -56,7 +72,8 @@ function AuthProvider({ children }: signInProps) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
+    <AuthContext.Provider
+      value={{ signIn, signOut, updateProfile, user: data.user }}>
       {children}
     </AuthContext.Provider>
   );

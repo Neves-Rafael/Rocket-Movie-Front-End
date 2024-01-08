@@ -5,7 +5,8 @@ export interface InputProps {
   icon?: IconType;
   placeholder: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  type?:string;
+  type?: string;
+  value?: string;
 }
 export function Input({
   placeholder,
@@ -14,9 +15,9 @@ export function Input({
   ...rest
 }: InputProps) {
   return (
-    <Container onChange={onChange}>
+    <Container>
       {Icon && <Icon size={20} />}
-      <input placeholder={placeholder}  {...rest} />
+      <input placeholder={placeholder} {...rest} onChange={onChange} />
     </Container>
   );
 }
