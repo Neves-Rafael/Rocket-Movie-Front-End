@@ -16,6 +16,9 @@ export function Profile() {
   const [passwordOld, setPasswordOld] = useState("");
   const [passwordNew, setPasswordNew] = useState("");
 
+  const [avatar, setAvatar] = useState(user.avatar);
+  const [avatarFile, setAvatarFile] = useState(null);
+
   async function handleUpdate() {
     const user = {
       name,
@@ -24,6 +27,14 @@ export function Profile() {
       old_password: passwordOld,
     };
     await updateProfile({ user });
+  }
+
+  function handleChangeAvatar(event){
+    const file = event.target.file[0];
+    setAvatarFile(file);
+
+    const imagePreview = URL.createObjectURL(file);
+    setAvatar(imagePreview);
   }
 
   return (
@@ -35,10 +46,10 @@ export function Profile() {
       </header>
       <Section>
         <Avatar>
-          <img src="https://source.unsplash.com/random" alt="" />
+          <img src={avatar} alt="" />
           <label htmlFor="avatar">
             <FiCamera />
-            <input type="file" id="avatar" />
+            <input type="file" id="avatar" onChange={handleChangeAvatar} />
           </label>
         </Avatar>
         <div>
