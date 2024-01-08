@@ -13,17 +13,17 @@ export function Profile() {
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [passwordOld, setPasswordOld] = useState();
-  const [passwordNew, setPasswordNew] = useState();
+  const [passwordOld, setPasswordOld] = useState("");
+  const [passwordNew, setPasswordNew] = useState("");
 
   async function handleUpdate() {
     const user = {
       name,
       email,
-      password: passwordNew,
+      new_password: passwordNew,
       old_password: passwordOld,
     };
-    await updateProfile({user});
+    await updateProfile({ user });
   }
 
   return (
@@ -56,12 +56,10 @@ export function Profile() {
         <div>
           <Input
             placeholder="Senha Atual"
-            value={passwordOld}
             onChange={(e) => setPasswordOld(e.target.value)}
           />
           <Input
             placeholder="Nova Senha"
-            value={passwordNew}
             onChange={(e) => setPasswordNew(e.target.value)}
           />
         </div>
