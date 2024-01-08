@@ -11,7 +11,6 @@ import { useState } from "react";
 
 interface AuthContext {
   signIn: (credentials: { email: string; password: string }) => Promise<void>;
-  // Adicione outras propriedades ou funções do contexto de autenticação, se necessário
 }
 
 export function SignIn() {
