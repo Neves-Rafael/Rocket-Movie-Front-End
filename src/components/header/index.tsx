@@ -2,11 +2,17 @@ import { Container } from "./styles";
 import { useAuth } from "../../hooks/auth";
 import { Input } from "../input";
 
+import { api } from "../../services/api";
+
 import { Link } from "react-router-dom";
+import avatarPlaceholder from "../../assets/placeholder.jpg";
 
 export function Header() {
+  const { signOut, user } = useAuth();
 
-  const { signOut } = useAuth();
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
 
   return (
     <Container>
@@ -20,7 +26,7 @@ export function Header() {
           <button onClick={signOut}>Sair</button>
         </div>
         <Link to={"/profile"}>
-          <img src="https://source.unsplash.com/random" alt="" />
+          <img src={avatarUrl} alt="" />
         </Link>
       </div>
     </Container>

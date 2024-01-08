@@ -9,7 +9,7 @@ import { useAuth } from "../../hooks/auth";
 import { useState } from "react";
 import { api } from "../../services/api";
 
-import avatarPlaceholder from "../../assets/placeholder.jpg"
+import avatarPlaceholder from "../../assets/placeholder.jpg";
 
 export function Profile() {
   const { user, updateProfile } = useAuth();
@@ -19,7 +19,9 @@ export function Profile() {
   const [passwordOld, setPasswordOld] = useState("");
   const [passwordNew, setPasswordNew] = useState("");
 
-  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
 
   const [avatar, setAvatar] = useState(avatarUrl);
   const [avatarFile, setAvatarFile] = useState(null);
@@ -34,7 +36,7 @@ export function Profile() {
     await updateProfile({ user, avatarFile });
   }
 
-  function handleChangeAvatar(event){
+  function handleChangeAvatar(event) {
     const file = event.target.files[0];
     setAvatarFile(file);
 
