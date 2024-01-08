@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 
 import { api } from "../services/api";
 import axios from "axios";
@@ -9,7 +15,6 @@ interface signInProps {
   children: ReactNode;
   email: string;
   password: string;
-  user: string;
 }
 
 function AuthProvider({ children }: signInProps) {
@@ -19,9 +24,11 @@ function AuthProvider({ children }: signInProps) {
       const response = await api.post("/sessions", { email, password });
       const { token, user } = response.data;
 
+      localStorage.setItem("@RocketMovies:user", JSON.stringify(user));
+      localStorage.setItem("@RocketMovies:token", token);
+
       api.defaults.headers.authorization = `Bearer ${token}`;
       setData({ token, user });
-
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         alert(error.response.data.message);
@@ -31,8 +38,20 @@ function AuthProvider({ children }: signInProps) {
     }
   }
 
+  useEffect(() => {
+    const token = localStorage.getItem("@RocketMovies:token");
+    const user = localStorage.getItem("@RocketMovies:user");
+
+    if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+      setData({ token, user: JSON.parse(user) });
+    }
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ signIn, user: data.user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ signIn, user: data.user }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
 
