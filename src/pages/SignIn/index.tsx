@@ -7,10 +7,22 @@ import { Link } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
 
+import { useState } from "react";
+
+interface AuthContext {
+  signIn: (credentials: { email: string; password: string }) => Promise<void>;
+  // Adicione outras propriedades ou funções do contexto de autenticação, se necessário
+}
 
 export function SignIn() {
-  const data = useAuth();
-  console.log(data);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { signIn } = useAuth() as AuthContext;
+
+  function handleSignIn() {
+    signIn({ email, password });
+  }
 
   return (
     <Container>
@@ -22,10 +34,21 @@ export function SignIn() {
           </div>
           <h2>Faça seu Login</h2>
           <div className="form-signin">
-            <Input placeholder="E-mail" icon={FiMail} />
-            <Input placeholder="Senha" icon={FiLock} />
+            <Input
+              placeholder="E-mail"
+              icon={FiMail}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <Input
+              placeholder="Senha"
+              icon={FiLock}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          <Button title="Sign In" />
+
+          <Button title="Sign In" onClick={handleSignIn} />
+
           <Link to={"/register"} className="create-account">
             Criar Conta
           </Link>
