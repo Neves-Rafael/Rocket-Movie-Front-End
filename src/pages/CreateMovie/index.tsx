@@ -31,6 +31,20 @@ export function CreateMovie() {
   }
 
   async function handleNewNote() {
+    
+    if(!title){
+      return alert("Preencha o campo 'Titulo'")
+    }
+
+    if(!stars){
+      return alert("Preencha o campo com a sua nota (de 0 a 5)")
+    }
+
+    if(newTag){
+      return alert("Existe uma tag não adicionada!")
+    }
+
+    
     await api.post("/notes", { title, description, stars, tags });
 
     alert("Avaliação criada com sucesso!");
@@ -81,7 +95,7 @@ export function CreateMovie() {
         </div>
         <div className="buttons">
           <Button title="Excluir Filme" />
-          <Button title="Salvar alteração" onClick={handleNewNote}/>
+          <Button title="Salvar alteração" onClick={handleNewNote} />
         </div>
       </Section>
     </Container>
