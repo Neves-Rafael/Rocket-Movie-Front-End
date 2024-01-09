@@ -11,14 +11,15 @@ import { api } from "../../services/api";
 
 export function Films(props) {
   const [notes, setNotes] = useState([]);
+  const [resultSearch, setResultSearch] = useState([]);
   const {search} = props;
-
+  
   useEffect(() => {
+    setResultSearch(search);
     async function fetchNotes() {
-      const response = await api.get(`/notes?title=${search}`);
+      const response = await api.get(`/notes?title=${resultSearch}`);
       setNotes(response.data);
     }
-
     fetchNotes();
   }, [search]);
 

@@ -16,13 +16,11 @@ export function Header() {
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
 
-  
   const [search, setSearch] = useState("");
 
-  if(search){
-    Films({search})
-    console.log(search)
-  }
+  useEffect(() => {
+    <Films search={search} />;
+  },[search]);
 
   return (
     <Container>
