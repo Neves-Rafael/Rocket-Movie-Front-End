@@ -6,9 +6,19 @@ import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 import { Mark } from "../../components/mark";
 
+import { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 export function CreateMovie() {
+  const [tags, setTags] = useState([]);
+  const [newTag, setNewTag] = useState("");
+
+  function handleAddTags() {
+    setTags((prevState) => [...prevState, newTag]);
+    setNewTag("");
+  }
+
   return (
     <Container>
       <Header />
@@ -24,8 +34,17 @@ export function CreateMovie() {
         <textarea placeholder="Sua analise" />
         <h3>Marcadores</h3>
         <div className="marks">
-          <Mark value="Drama" />
-          <Mark $isnew="true" placeholder="New tag" />
+          {tags.map((tag, index) => (
+            <Mark value={tag} key={String(index)} onClick={()=>{}} />
+          ))}
+
+          <Mark
+            $isnew="true"
+            placeholder="New tag"
+            onChange={(e) => setNewTag(e.target.value)}
+            value={newTag}
+            onClick={handleAddTags}
+          />
         </div>
         <div className="buttons">
           <Button title="Excluir Filme" />

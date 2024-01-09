@@ -22,11 +22,11 @@ export function Header() {
       <Input placeholder="Pesquisar pelo título" />
       <div>
         <div>
-          <p>Nome do usuário</p>
+          <p>{user.name}</p>
           <button onClick={signOut}>Sair</button>
         </div>
         <Link to={"/profile"}>
-          <img src={avatarUrl} alt="" />
+          <img src={avatarUrl} alt={user.name} />
         </Link>
       </div>
     </Container>
