@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-
 `;
 export const Section = styled.section`
   width: 100%;
@@ -67,8 +66,8 @@ export const Section = styled.section`
       flex-direction: column;
     }
 
-    .marks{
-      flex-direction:row;
+    .marks {
+      flex-direction: row;
       gap: 1rem;
     }
   }
@@ -81,8 +80,8 @@ export const Section = styled.section`
       flex-direction: column;
     }
 
-    .marks{
-      flex-direction:row;
+    .marks {
+      flex-direction: row;
       gap: 1rem;
     }
   }
