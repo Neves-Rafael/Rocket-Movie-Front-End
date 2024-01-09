@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+
 `;
 export const Section = styled.section`
   width: 100%;
-  padding: 0 15%;
+  padding: 0 30%;
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -54,8 +55,22 @@ export const Section = styled.section`
     }
   }
 
-  @media (min-width: 1000px) {
-    padding: 0 5% 10rem;
+  @media (min-width: 1100px) {
+    padding: 0 15% 10rem;
+  }
+
+  @media (max-width: 1100px) {
+    padding: 0 10% 10rem;
+
+    > div,
+    .buttons {
+      flex-direction: column;
+    }
+
+    .marks{
+      flex-direction:row;
+      gap: 1rem;
+    }
   }
 
   @media (max-width: 768px) {
