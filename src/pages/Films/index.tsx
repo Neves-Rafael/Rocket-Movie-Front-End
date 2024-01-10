@@ -11,12 +11,11 @@ import avatarPlaceholder from "../../assets/placeholder.jpg";
 import { Input } from "../../components/input";
 import { useAuth } from "../../hooks/auth";
 
-
 export function Films() {
   const { signOut, user } = useAuth();
   const avatarUrl = user.avatar
-  ? `${api.defaults.baseURL}/files/${user.avatar}`
-  : avatarPlaceholder;
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
 
   const [search, setSearch] = useState("");
   const [notes, setNotes] = useState([]);
@@ -30,25 +29,24 @@ export function Films() {
 
   return (
     <Container>
-    <Search>
-      <Link to={"/"}>
-        <h2>Rocket Movies</h2>
-      </Link>
-      <Input
-        placeholder="Pesquisar pelo título"
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div>
-        <div>
-          <p>{user.name}</p>
-          <button onClick={signOut}>Sair</button>
-        </div>
-        <Link to={"/profile"}>
-          <img src={avatarUrl} alt={user.name} />
+      <Search>
+        <Link to={"/"}>
+          <h2>Rocket Movies</h2>
         </Link>
-      </div>
-    </Search>
-
+        <Input
+          placeholder="Pesquisar pelo título"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <div>
+          <div>
+            <p>{user.name}</p>
+            <button onClick={signOut}>Sair</button>
+          </div>
+          <Link to={"/profile"}>
+            <img src={avatarUrl} alt={user.name} />
+          </Link>
+        </div>
+      </Search>
 
       <NewMovie>
         <Title title="Filmes" />
@@ -58,18 +56,13 @@ export function Films() {
       </NewMovie>
       <ScrollY>
         <Link to={"/preview"}>
-          {notes.map((t) => (
+          {notes.map((note) => (
             <CardFilm
-              key={String(t.id)}
-              title={t.title}
-              description={t.description}
+              key={String(note.id)}
+              title={note.title}
+              description={note.description}
             />
           ))}
-        </Link>
-      </ScrollY>
-      <ScrollY>
-        <Link to={"/preview"}>
-          <CardFilm title={""} description={""} />
         </Link>
       </ScrollY>
     </Container>

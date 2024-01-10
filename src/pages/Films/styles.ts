@@ -36,11 +36,13 @@ export const ScrollY = styled.div`
   max-height: calc(100vh - 25rem);
 
   > a {
-    color: ${({ theme }) => theme.COLORS.WHITE};
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-    &:hover {
-      color: ${({ theme }) => theme.COLORS.RED};
-    }
+  > a div {
+    color: ${({ theme }) => theme.COLORS.WHITE};
   }
 
   @media (max-width: 1100px) {
