@@ -10,16 +10,26 @@ import { useState, useEffect } from "react";
 
 export function Preview() {
   const [data, setData] = useState([]);
+  const [userCreate, setUserCreate] = useState([]);
   const params = useParams();
 
   useEffect(() => {
     async function fetchNote() {
       const response = await api.get(`notes/${params.id}`);
       setData(response.data);
-      console.log(response.data);
     }
     fetchNote();
   }, []);
+
+  useEffect(() => {
+    async function fetchUser() {
+      const responseUser = await api.get(`users/${data.user_id}`);
+      setUserCreate(responseUser.data);
+    }
+    fetchUser();
+  }, [data]);
+
+  console.log();
 
   return (
     <Container>
@@ -35,9 +45,12 @@ export function Preview() {
           <div className="publication">
             <img src="https://source.unsplash.com/random" alt="" />
             <p>
-              Por <span>Rafael Neves</span>
+              Por{" "}
+              <span>
+                {userCreate.user ? userCreate.user.name : "User desconhecido"}
+              </span>
             </p>
-            <p>29/12/2023 às 15:00 </p>
+            <p>{data.created_at}</p>
           </div>
           {data.tags && (
             <div className="tags">

@@ -38,6 +38,7 @@ export function Films() {
     async function fetchNotes() {
       const response = await api.get(`/notes?title=${search}`);
       setNotes(response.data);
+      console.log(response.data);
     }
     fetchNotes();
   }, [search]);
@@ -72,7 +73,7 @@ export function Films() {
       <ScrollY>
         {notes.map((note) => (
           <CardFilm
-            data={note}
+            data={note.id}
             key={String(note.id)}
             title={note.title}
             description={note.description}
