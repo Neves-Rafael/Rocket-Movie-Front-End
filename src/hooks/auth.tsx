@@ -18,7 +18,7 @@ interface signInProps {
 }
 
 function AuthProvider({ children }: signInProps) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<{ token?: string; user?: string }>({});
   async function signIn({ email, password }: signInProps) {
     try {
       const response = await api.post("/sessions", { email, password });
@@ -45,9 +45,15 @@ function AuthProvider({ children }: signInProps) {
     setData({});
   }
 
-  async function updateProfile({ user, avatarFile }) {
+  async function updateProfile({
+    user,
+    avatarFile,
+  }: {
+    user?: any;
+    avatarFile: File;
+  }) {
     try {
-      if(avatarFile){
+      if (avatarFile) {
         const fileUploadForm = new FormData();
         fileUploadForm.append("avatar", avatarFile);
         const response = await api.patch("/users/avatar", fileUploadForm);
@@ -86,7 +92,12 @@ function AuthProvider({ children }: signInProps) {
   );
 }
 
-function useAuth() {
+interface AuthData {
+  signOut?: () => void;
+  user?: any; // Substitua 'any' pelo tipo correto do objeto 'user'
+}
+
+function useAuth(): AuthData {
   const context = useContext(AuthContext);
 
   return context;

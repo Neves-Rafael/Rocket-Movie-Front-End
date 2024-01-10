@@ -11,6 +11,13 @@ import avatarPlaceholder from "../../assets/placeholder.jpg";
 import { Input } from "../../components/input";
 import { useAuth } from "../../hooks/auth";
 
+interface Note {
+  id: number;
+  title: string;
+  description: string;
+  // Adicione outras propriedades, se necessário
+}
+
 export function Films() {
   const { signOut, user } = useAuth();
   const avatarUrl = user.avatar
@@ -18,7 +25,7 @@ export function Films() {
     : avatarPlaceholder;
 
   const [search, setSearch] = useState("");
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState<Note[]>([]);
   async function fetchNotes() {
     const response = await api.get(`/notes?title=${search}`);
     setNotes(response.data);
