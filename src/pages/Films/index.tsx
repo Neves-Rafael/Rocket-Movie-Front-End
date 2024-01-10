@@ -72,6 +72,7 @@ export function Films() {
       <ScrollY>
         {notes.map((note) => (
           <CardFilm
+            data={note}
             key={String(note.id)}
             title={note.title}
             description={note.description}
