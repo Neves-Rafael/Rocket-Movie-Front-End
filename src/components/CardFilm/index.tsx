@@ -7,10 +7,10 @@ export interface CardFilmProps {
   description: string;
 }
 
-export function CardFilm({ title, description, data }: CardFilmProps) {
+export function CardFilm({ title, description, data, onClick }: CardFilmProps) {
 
   return (
-    <Container>
+    <Container onClick={onClick}>
       <div>
         <h2>{title}</h2>
         <Star fillStar={3} />

@@ -8,6 +8,7 @@ padding: 3.2rem;
 display: flex;
 flex-direction: column;
 gap: 1.5rem;
+cursor: pointer;
 
 >div h2{
     font-size: 2.4rem;

@@ -10,12 +10,12 @@ import { api } from "../../services/api";
 import avatarPlaceholder from "../../assets/placeholder.jpg";
 import { Input } from "../../components/input";
 import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 interface Note {
   id: number;
   title: string;
   description: string;
-  // Adicione outras propriedades, se necessário
 }
 
 export function Films() {
@@ -26,11 +26,19 @@ export function Films() {
 
   const [search, setSearch] = useState("");
   const [notes, setNotes] = useState<Note[]>([]);
-  async function fetchNotes() {
-    const response = await api.get(`/notes?title=${search}`);
-    setNotes(response.data);
+
+  const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`/preview/${id}`);
+    console.log("teste")
   }
+
   useEffect(() => {
+    async function fetchNotes() {
+      const response = await api.get(`/notes?title=${search}`);
+      setNotes(response.data);
+    }
     fetchNotes();
   }, [search]);
 
@@ -62,15 +70,14 @@ export function Films() {
         </Link>
       </NewMovie>
       <ScrollY>
-        <Link to={"/preview"}>
-          {notes.map((note) => (
-            <CardFilm
-              key={String(note.id)}
-              title={note.title}
-              description={note.description}
-            />
-          ))}
-        </Link>
+        {notes.map((note) => (
+          <CardFilm
+            key={String(note.id)}
+            title={note.title}
+            description={note.description}
+            onClick={() => handleDetails(note.id)}
+          />
+        ))}
       </ScrollY>
     </Container>
   );
