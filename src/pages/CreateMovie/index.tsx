@@ -1,5 +1,4 @@
 import { Container, Section } from "./styles";
-import { Header } from "../../components/header";
 import { BackButton } from "../../components/backButton";
 import { Title } from "../../components/title";
 import { Input } from "../../components/input";
@@ -53,7 +52,6 @@ export function CreateMovie() {
 
   return (
     <Container>
-      <Header />
       <Section>
         <Link to={"/"}>
           <BackButton />

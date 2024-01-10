@@ -7,7 +7,7 @@ export interface CardFilmProps {
   description: string;
 }
 
-export function CardFilm({ title, description }: CardFilmProps) {
+export function CardFilm({ title, description, data }: CardFilmProps) {
 
   return (
     <Container>
