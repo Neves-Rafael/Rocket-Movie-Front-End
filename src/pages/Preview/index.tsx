@@ -21,18 +21,17 @@ export function Preview() {
   const navigate = useNavigate();
 
   function handleBack() {
-    navigate("/");
+    navigate(-1);
   }
 
-  async function handleDelete(){
+  async function handleDelete() {
     const confirm = window.confirm("Tem certeza que deseja excluir esta nota?");
 
-    if(confirm){
+    if (confirm) {
       await api.delete(`/notes/${params.id}`);
-      navigate("/");
+      navigate(-1);
     }
   }
-
 
   useEffect(() => {
     async function fetchNote() {
@@ -58,10 +57,7 @@ export function Preview() {
 
   return (
     <Container>
-      <Link to={"/"}>
-        <BackButton onClick={handleBack} />
-      </Link>
-
+      <BackButton onClick={handleBack} />
       {data && (
         <Section>
           <div className="movie">

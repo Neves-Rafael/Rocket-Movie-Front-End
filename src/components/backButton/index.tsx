@@ -1,5 +1,5 @@
 import { Container } from "./styles";
 
-export function BackButton() {
-  return <Container>← Voltar</Container>;
+export function BackButton({ onClick}) {
+  return <Container onClick={onClick}>← Voltar</Container>;
 }

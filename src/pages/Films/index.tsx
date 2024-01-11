@@ -20,6 +20,7 @@ interface Note {
 
 export function Films() {
   const { signOut, user } = useAuth();
+  
   const avatarUrl = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
