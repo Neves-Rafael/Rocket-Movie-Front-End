@@ -7,7 +7,6 @@ import { Mark } from "../../components/mark";
 
 import { useState } from "react";
 import { api } from "../../services/api";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export function CreateMovie() {
@@ -30,20 +29,18 @@ export function CreateMovie() {
   }
 
   async function handleNewNote() {
-    
-    if(!title){
-      return alert("Preencha o campo 'Titulo'")
+    if (!title) {
+      return alert("Preencha o campo 'Titulo'");
     }
 
-    if(!stars){
-      return alert("Preencha o campo com a sua nota (de 0 a 5)")
+    if (!stars) {
+      return alert("Preencha o campo com a sua nota (de 0 a 5)");
     }
 
-    if(newTag){
-      return alert("Existe uma tag não adicionada!")
+    if (newTag) {
+      return alert("Existe uma tag não adicionada!");
     }
 
-    
     await api.post("/notes", { title, description, stars, tags });
 
     alert("Avaliação criada com sucesso!");
@@ -53,7 +50,7 @@ export function CreateMovie() {
   return (
     <Container>
       <Section>
-          <BackButton onClick={() => navigate(-1)}/>
+        <BackButton onClick={() => navigate(-1)} />
         <Title title="Novo Filme"></Title>
         <div>
           <Input
