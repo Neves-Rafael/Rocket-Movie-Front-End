@@ -5,7 +5,6 @@ import { Input } from "../../components/input";
 
 import { Container, Content, Section } from "./styles";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
@@ -24,7 +23,7 @@ export function SignUp() {
       .post("/users", { name, email, password })
       .then(() => {
         alert("Usuário cadastrado com sucesso!");
-        navigate("/");
+        navigate(-1);
       })
       .catch((error) => {
         if (error.response) {
@@ -63,9 +62,9 @@ export function SignUp() {
           </div>
           <Button title="Cadastrar" onClick={handleSignUp} />
 
-          <Link to={"/"} className="create-account">
+          <button onClick={() => navigate(-1)} className="create-account">
             ← Voltar para o login
-          </Link>
+          </button>
         </Section>
       </Content>
       <img src="https://source.unsplash.com/random" alt="" />

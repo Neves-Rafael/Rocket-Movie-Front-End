@@ -20,7 +20,7 @@ interface Note {
 
 export function Films() {
   const { signOut, user } = useAuth();
-  
+
   const avatarUrl = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
@@ -46,9 +46,8 @@ export function Films() {
   return (
     <Container>
       <Search>
-        <Link to={"/"}>
-          <h2>Rocket Movies</h2>
-        </Link>
+        <button>Rocket Movies</button>
+
         <Input
           placeholder="Pesquisar pelo título"
           onChange={(e) => setSearch(e.target.value)}

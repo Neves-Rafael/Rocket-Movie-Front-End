@@ -3,7 +3,7 @@ import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 import { BackButton } from "../../components/backButton";
 import { FiCamera } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
 import { useState } from "react";
@@ -13,6 +13,8 @@ import avatarPlaceholder from "../../assets/placeholder.jpg";
 
 export function Profile() {
   const { user, updateProfile } = useAuth();
+
+  const navigate = useNavigate();
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -47,9 +49,7 @@ export function Profile() {
   return (
     <Container>
       <header>
-        <Link to="/">
-          <BackButton />
-        </Link>
+        <BackButton onClick={() => navigate(-1)} />
       </header>
       <Section>
         <Avatar>

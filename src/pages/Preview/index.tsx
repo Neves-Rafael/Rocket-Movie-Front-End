@@ -5,7 +5,6 @@ import { BackButton } from "../../components/backButton";
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
 
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";

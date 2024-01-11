@@ -47,15 +47,13 @@ export function CreateMovie() {
     await api.post("/notes", { title, description, stars, tags });
 
     alert("Avaliação criada com sucesso!");
-    navigate("/");
+    navigate(-1);
   }
 
   return (
     <Container>
       <Section>
-        <Link to={"/"}>
-          <BackButton />
-        </Link>
+          <BackButton onClick={() => navigate(-1)}/>
         <Title title="Novo Filme"></Title>
         <div>
           <Input
