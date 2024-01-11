@@ -25,13 +25,12 @@ export function Films() {
     : avatarPlaceholder;
 
   const [search, setSearch] = useState("");
-  const [notes, setNotes] = useState<Note[]>([]);
+  const [notes, setNotes] = useState([]);
 
   const navigate = useNavigate();
 
   function handleDetails(id) {
     navigate(`/preview/${id}`);
-    console.log("teste")
   }
 
   useEffect(() => {

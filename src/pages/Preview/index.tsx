@@ -3,6 +3,7 @@ import { Star } from "../../components/stars";
 import { Tag } from "../../components/Tag";
 import { BackButton } from "../../components/backButton";
 import { api } from "../../services/api";
+import { useAuth } from "../../hooks/auth";
 
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -11,7 +12,10 @@ import { useState, useEffect } from "react";
 export function Preview() {
   const [data, setData] = useState([]);
   const [userCreate, setUserCreate] = useState([]);
+  const [deleteNote, setDeleteNote] = useState("");
   const params = useParams();
+
+  const { user } = useAuth();
 
   useEffect(() => {
     async function fetchNote() {
@@ -25,17 +29,22 @@ export function Preview() {
     async function fetchUser() {
       const responseUser = await api.get(`users/${data.user_id}`);
       setUserCreate(responseUser.data);
+      if (data.user_id === user.id) {
+        setDeleteNote("Excluir nota");
+      } else {
+        setDeleteNote("");
+      }
     }
+
     fetchUser();
   }, [data]);
-
-  console.log();
 
   return (
     <Container>
       <Link to={"/"}>
         <BackButton />
       </Link>
+
       {data && (
         <Section>
           <div className="movie">
@@ -60,6 +69,7 @@ export function Preview() {
             </div>
           )}
           <p>{data.description}</p>
+          {deleteNote && <p>Excluir nota</p>}
         </Section>
       )}
     </Container>
