@@ -11,6 +11,12 @@ export const Section = styled.section`
   gap: 4rem;
   margin-top: 4rem;
 
+  > button {
+    margin: 2rem 0;
+    display: flex;
+    font-size: 1.8rem;
+  }
+
   > div {
     display: flex;
     gap: 4rem;
@@ -38,11 +44,14 @@ export const Section = styled.section`
     padding: 1.6rem;
 
     > button {
-      width: auto;
+      width: 15rem;
+      &:hover {
+        filter: brightness(1.5);
+      }
     }
 
     > button input {
-      width: 10rem;
+      width: 12rem;
     }
   }
 
@@ -52,6 +61,10 @@ export const Section = styled.section`
     > button {
       color: ${({ theme }) => theme.COLORS.RED};
     }
+  }
+
+  .buttons div:nth-child(2):hover {
+    filter: brightness(1.1);
   }
 
   @media (min-width: 1100px) {

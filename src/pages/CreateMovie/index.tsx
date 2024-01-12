@@ -36,8 +36,6 @@ export function CreateMovie() {
     setNewTag("");
   }
 
-
-
   async function handleNewNote() {
     if (!title) {
       return alert("Preencha o campo 'Titulo'");
