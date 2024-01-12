@@ -4,11 +4,12 @@ import { SignIn } from "../pages/SignIn";
 import { SignUp } from "../pages/SignUp";
 
 export function AuthRouter() {
+  const user = localStorage.getItem("@rocketMovies:user");
   return (
     <Routes>
       <Route path="/" element={<SignIn />} />
       <Route path="/register" element={<SignUp />} />
-      <Route path="*" element={<Navigate to="/" />} />
+      {!user && <Route path="*" element={<Navigate to="/" />} />}
     </Routes>
   );
 }
