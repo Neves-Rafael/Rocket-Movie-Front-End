@@ -5,6 +5,7 @@ import { Input } from "../../components/input";
 
 import { Container, Content, Section } from "./styles";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 

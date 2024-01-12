@@ -15,7 +15,7 @@ export function CreateMovie() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [stars, setStars] = useState(0);
+  const [stars, setStars] = useState("");
 
   const navigate = useNavigate();
 
@@ -27,6 +27,16 @@ export function CreateMovie() {
   function handleRemoveTag(deleted) {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
+
+  function handleClearNote() {
+    setDescription("");
+    setTitle("");
+    setStars("");
+    setTags([]);
+    setNewTag("");
+  }
+
+
 
   async function handleNewNote() {
     if (!title) {
@@ -54,16 +64,19 @@ export function CreateMovie() {
         <Title title="Novo Filme"></Title>
         <div>
           <Input
-            placeholder="Tiulo"
+            placeholder="Titulo"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <Input
             placeholder="Sua nota (de 0 a 5)"
+            value={stars}
             onChange={(e) => setStars(e.target.value)}
           />
         </div>
         <textarea
           placeholder="Sua analise"
+          value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
         <h3>Marcadores</h3>
@@ -87,8 +100,8 @@ export function CreateMovie() {
           />
         </div>
         <div className="buttons">
-          <Button title="Excluir Filme" />
-          <Button title="Salvar alteração" onClick={handleNewNote} />
+          <Button title="Limpar Campos" onClick={handleClearNote} />
+          <Button title="Salvar Avaliação" onClick={handleNewNote} />
         </div>
       </Section>
     </Container>
