@@ -11,9 +11,12 @@
 
 <p align="center">Projeto desenvolvido durante o curso <strong>Explorer</strong> oferecida pela <a href="https://app.rocketseat.com.br/">RocketSeat</a>.<br/>
 <br/>
+<br/>
 
 
 <h3 align="center"><a href="https://github.com/Neves-Rafael/Rocket-Movie-Back-End">Link Para Acessar Back-End</a></h3>
+<br/>
+<br/>
 
 <h1 align="center">⚙️ Principais telas</h1>
 
