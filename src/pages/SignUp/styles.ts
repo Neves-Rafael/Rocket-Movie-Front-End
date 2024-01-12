@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -65,10 +64,15 @@ export const Section = styled.section`
     color: ${({ theme }) => theme.COLORS.RED};
   }
 
-  @media (max-width:1000px){
+  > button {
+    background: none;
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 1000px) {
     width: 80%;
 
-    >div h1{
+    > div h1 {
       font-size: 4rem;
     }
   }
