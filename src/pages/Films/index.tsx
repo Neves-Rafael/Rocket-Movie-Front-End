@@ -30,6 +30,10 @@ export function Films() {
 
   const navigate = useNavigate();
 
+  function handleSignOut() {
+    signOut();
+    navigate("/");
+  }
   function handleDetails(id) {
     navigate(`/preview/${id}`);
   }
@@ -55,7 +59,7 @@ export function Films() {
         <div>
           <div>
             <p>{user.name}</p>
-            <button onClick={signOut}>Sair</button>
+            <button onClick={handleSignOut}>Sair</button>
           </div>
           <Link to={"/profile"}>
             <img src={avatarUrl} alt={user.name} />
