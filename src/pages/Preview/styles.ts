@@ -3,16 +3,48 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-  > button {
+  > div button {
     font-size: 1.8rem;
     margin-top: 10rem;
     margin-bottom: 10rem;
     margin-left: 15%;
   }
 
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .deleteNote {
+    margin-top: 10rem;
+    align-self: flex-end;
+    padding: 1rem 2rem;
+    width: auto;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    color: ${({ theme }) => theme.COLORS.RED};
+    border-radius: 0.8rem;
+    margin-right: 15%;
+    font-weight: 700;
+
+    &:hover {
+      filter: brightness(1.1);
+      background-color: ${({ theme }) => theme.COLORS.RED};
+      color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    }
+  }
+
   @media (max-width: 768px) {
-    > a div {
+    > div button {
       margin-left: 5%;
+    }
+
+    > div button,
+    .deleteNote {
+      margin: 5rem 5%;
+    }
+
+    .deleteNote {
+      margin-right: 5%;
     }
   }
 `;
@@ -65,6 +97,14 @@ export const Section = styled.section`
 
   @media (max-width: 768px) {
     padding: 0 5% 10rem;
+
+    .tags {
+      justify-content: center;
+    }
+
+    > .movie h2 {
+      margin-right: 0;
+    }
 
     .movie {
       flex-direction: column;

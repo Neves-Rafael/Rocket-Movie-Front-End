@@ -63,7 +63,14 @@ export function Preview() {
 
   return (
     <Container>
-      <BackButton onClick={handleBack} />
+      <div>
+        <BackButton onClick={handleBack} />
+        {deleteNote && (
+          <button className="deleteNote" onClick={handleDelete}>
+            Excluir nota
+          </button>
+        )}
+      </div>
       {data && (
         <Section>
           <div className="movie">
@@ -87,7 +94,6 @@ export function Preview() {
             </div>
           )}
           <p>{data.description}</p>
-          {deleteNote && <button onClick={handleDelete}>Excluir nota</button>}
         </Section>
       )}
     </Container>
