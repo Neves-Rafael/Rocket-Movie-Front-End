@@ -8,7 +8,7 @@ import { useAuth } from "../../hooks/auth";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import avatarPlaceholder from "../../assets/placeholder.jpg";
 export function Preview() {
   const [data, setData] = useState([]);
   const [userCreate, setUserCreate] = useState([]);
@@ -16,7 +16,6 @@ export function Preview() {
   const params = useParams();
 
   const { user } = useAuth();
-
   const navigate = useNavigate();
 
   function handleBack() {
@@ -31,6 +30,10 @@ export function Preview() {
       navigate(-1);
     }
   }
+
+  const avatarUrl = userCreate.user
+    ? `${api.defaults.baseURL}/files/${userCreate.user.avatar}`
+    : avatarPlaceholder;
 
   useEffect(() => {
     async function fetchNote() {
@@ -64,9 +67,8 @@ export function Preview() {
             <Star fillStar={data.rating ? data.rating[0].stars : 3} />
           </div>
           <div className="publication">
-            <img src="https://source.unsplash.com/random" alt="" />
+            <img src={avatarUrl} alt="" />
             <p>
-              Por{" "}
               <span>
                 {userCreate.user ? userCreate.user.name : "User desconhecido"}
               </span>

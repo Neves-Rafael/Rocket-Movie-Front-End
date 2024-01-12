@@ -34,12 +34,14 @@ export function SignIn() {
           <h2>Faça seu Login</h2>
           <div className="form-signin">
             <Input
+              type="email"
               placeholder="E-mail"
               icon={FiMail}
               onChange={(e) => setEmail(e.target.value)}
             />
 
             <Input
+              type="password"
               placeholder="Senha"
               icon={FiLock}
               onChange={(e) => setPassword(e.target.value)}

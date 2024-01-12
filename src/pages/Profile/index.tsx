@@ -63,11 +63,13 @@ export function Profile() {
         </Avatar>
         <div>
           <Input
+            type="text"
             placeholder="Nome do usuário"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <Input
+            type="email"
             placeholder="E-mail do usuário"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -75,10 +77,12 @@ export function Profile() {
         </div>
         <div>
           <Input
+            type="password"
             placeholder="Senha Atual"
             onChange={(e) => setPasswordOld(e.target.value)}
           />
           <Input
+            type="password"
             placeholder="Nova Senha"
             onChange={(e) => setPasswordNew(e.target.value)}
           />

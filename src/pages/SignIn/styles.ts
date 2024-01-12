@@ -24,8 +24,6 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-
-
   @media (max-width: 1000px) {
     width: 100%;
   }
@@ -66,10 +64,13 @@ export const Section = styled.section`
     color: ${({ theme }) => theme.COLORS.RED};
   }
 
+  > a {
+    font-size: 1.8rem;
+  }
 
-  @media (max-width:1000px){
+  @media (max-width: 1000px) {
     width: 80%;
-    >div h1{
+    > div h1 {
       font-size: 4rem;
     }
   }

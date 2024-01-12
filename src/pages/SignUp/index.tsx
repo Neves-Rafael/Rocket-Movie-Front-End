@@ -45,11 +45,13 @@ export function SignUp() {
           <h2>Crie sua conta</h2>
           <div className="form-signin">
             <Input
+              type="text"
               placeholder="Nome"
               icon={FiUser}
               onChange={(e) => setName(e.target.value)}
             />
             <Input
+              type="email"
               placeholder="E-mail"
               icon={FiMail}
               onChange={(e) => setEmail(e.target.value)}

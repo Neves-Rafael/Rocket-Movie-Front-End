@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
 
-  > a div {
-    margin-top: 4rem;
-    margin-bottom: 2.4rem;
+  > button {
+    font-size: 1.8rem;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
     margin-left: 15%;
   }
 
@@ -65,12 +66,11 @@ export const Section = styled.section`
   @media (max-width: 768px) {
     padding: 0 5% 10rem;
 
-
-    .movie{
+    .movie {
       flex-direction: column;
     }
 
-    .publication{
+    .publication {
       flex-direction: column;
     }
   }

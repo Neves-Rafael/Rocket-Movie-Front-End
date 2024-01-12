@@ -31,9 +31,11 @@ export default createGlobalStyle`
     button, a {
         cursor: pointer;
         transition: filter 0.2s;
+        background: none;
     }
 
     button:hover, a:hover {
         filter: brightness(3);
     }
+
 `;
