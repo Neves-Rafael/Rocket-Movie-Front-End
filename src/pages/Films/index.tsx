@@ -53,6 +53,7 @@ export function Films() {
         <button>Rocket Movies</button>
 
         <Input
+          type="text"
           placeholder="Pesquisar pelo título"
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -61,17 +62,21 @@ export function Films() {
             <p>{user.name}</p>
             <button onClick={handleSignOut}>Sair</button>
           </div>
-          <Link to={"/profile"}>
-            <img src={avatarUrl} alt={user.name} />
-          </Link>
+          <img
+            src={avatarUrl}
+            alt={user.name}
+            onClick={() => navigate("/profile")}
+          />
         </div>
       </Search>
 
       <NewMovie>
         <Title title="Filmes" />
-        <Link to="/create">
-          <Button title="Novo filme" icon={FiPlus} />
-        </Link>
+        <Button
+          title="Novo filme"
+          icon={FiPlus}
+          onClick={() => navigate("/create")}
+        />
       </NewMovie>
       <ScrollY>
         {notes.map((note) => (

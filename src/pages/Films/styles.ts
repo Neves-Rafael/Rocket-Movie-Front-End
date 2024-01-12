@@ -12,10 +12,17 @@ export const NewMovie = styled.div`
   margin-top: 4.8rem;
   margin-bottom: 3.8rem;
 
-  > a div {
+  > div {
+    margin-right: 1.7rem;
     width: 21rem;
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
+  :last-child{
+    &:hover{
+      filter: brightness(1.1);
+    }
+  }
+  
 
   @media (max-width: 1100px) {
     padding: 0 5%;
@@ -59,7 +66,8 @@ export const Search = styled.header`
   border-bottom: solid 1px ${({ theme }) => theme.COLORS.GRAY_300};
   padding: 0 15%;
 
-  > a h2 {
+  > button {
+    font-weight: 700;
     font-size: 2.4rem;
     color: ${({ theme }) => theme.COLORS.RED};
     min-width: 17rem;
@@ -68,7 +76,7 @@ export const Search = styled.header`
   > div {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   > div img {
@@ -76,6 +84,10 @@ export const Search = styled.header`
     height: 6.4rem;
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(1.2);
+    }
   }
 
   > div div {
