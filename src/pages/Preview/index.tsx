@@ -30,10 +30,14 @@ export function Preview() {
       navigate(-1);
     }
   }
-
-  const avatarUrl = userCreate.user
-    ? `${api.defaults.baseURL}/files/${userCreate.user.avatar}`
-    : avatarPlaceholder;
+  let avatarUrl;
+  if (userCreate.user && !userCreate.user.avatar) {
+    avatarUrl = avatarPlaceholder;
+  } else {
+    avatarUrl = userCreate.user
+      ? `${api.defaults.baseURL}/files/${userCreate.user.avatar}`
+      : avatarPlaceholder;
+  }
 
   useEffect(() => {
     async function fetchNote() {
