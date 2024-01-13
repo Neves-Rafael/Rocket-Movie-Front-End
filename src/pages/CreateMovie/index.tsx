@@ -24,7 +24,7 @@ export function CreateMovie() {
     setNewTag("");
   }
 
-  function handleRemoveTag(deleted) {
+  function handleRemoveTag(deleted: string) {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
 

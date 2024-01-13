@@ -4,7 +4,6 @@ import { Button } from "../../components/button";
 import { FiPlus } from "react-icons/fi";
 import { Title } from "../../components/title";
 
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import avatarPlaceholder from "../../assets/placeholder.jpg";
@@ -12,10 +11,11 @@ import { Input } from "../../components/input";
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
 
-interface Note {
+interface noteProps {
   id: number;
   title: string;
   description: string;
+  rating: number;
 }
 
 export function Films() {
@@ -31,10 +31,12 @@ export function Films() {
   const navigate = useNavigate();
 
   function handleSignOut() {
-    signOut();
+    if (signOut) {
+      signOut();
+    }
     navigate("/");
   }
-  function handleDetails(id) {
+  function handleDetails(id: number) {
     navigate(`/preview/${id}`);
   }
 
@@ -79,7 +81,7 @@ export function Films() {
         />
       </NewMovie>
       <ScrollY>
-        {notes.map((note) => (
+        {notes.map((note: noteProps) => (
           <CardFilm
             data={note.id}
             key={String(note.id)}

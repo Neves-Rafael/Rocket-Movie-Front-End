@@ -6,6 +6,7 @@ interface MarkProps {
   placeholder?: string;
   onClick?: () => void;
   $isnew?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function Mark({
