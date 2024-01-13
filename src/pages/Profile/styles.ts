@@ -13,7 +13,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     padding-left: 15%;
-    >button{
+    > button {
       font-size: 1.8rem;
     }
   }

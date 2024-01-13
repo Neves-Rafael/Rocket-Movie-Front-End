@@ -17,12 +17,11 @@ export const NewMovie = styled.div`
     width: 21rem;
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
-  :last-child{
-    &:hover{
+  :last-child {
+    &:hover {
       filter: brightness(1.1);
     }
   }
-  
 
   @media (max-width: 1100px) {
     padding: 0 5%;

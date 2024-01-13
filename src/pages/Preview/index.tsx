@@ -9,9 +9,27 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import avatarPlaceholder from "../../assets/placeholder.jpg";
+
+interface dataProps {
+  title: string;
+  rating?: { stars: number }[];
+  created_at: string;
+  tags?: { name: string; id: number }[];
+  description: string;
+  id: number;
+  user_id: number;
+}
+
+interface userCreteProps {
+  user?: {
+    name: string;
+    avatar: string;
+  };
+}
+
 export function Preview() {
-  const [data, setData] = useState([]);
-  const [userCreate, setUserCreate] = useState([]);
+  const [data, setData] = useState<dataProps>([]);
+  const [userCreate, setUserCreate] = useState<userCreteProps>([]);
   const [deleteNote, setDeleteNote] = useState("");
   const params = useParams();
 

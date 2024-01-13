@@ -40,7 +40,7 @@ export function Profile() {
     await updateProfile({ user: userUpdate, avatarFile });
   }
 
-  function handleChangeAvatar(event) {
+  function handleChangeAvatar(event: { target: { files: any[] } }) {
     const file = event.target.files[0];
     setAvatarFile(file);
 
