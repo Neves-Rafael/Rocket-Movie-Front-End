@@ -70,7 +70,10 @@ export function SignUp() {
           </button>
         </Section>
       </Content>
-      <img src="https://source.unsplash.com/random" alt="" />
+      <img
+        src="https://images.pexels.com/photos/375885/pexels-photo-375885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt=""
+      />
     </Container>
   );
 }
