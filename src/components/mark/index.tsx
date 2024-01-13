@@ -8,10 +8,22 @@ interface MarkProps {
   $isnew?: string;
 }
 
-export function Mark({ $isnew, value, placeholder, onClick, ...rest }: MarkProps) {
+export function Mark({
+  $isnew,
+  value,
+  placeholder,
+  onClick,
+  ...rest
+}: MarkProps) {
   return (
     <Container $isnew={$isnew}>
-      <input type="text" value={value} readOnly={!$isnew} placeholder={placeholder} {...rest}/>
+      <input
+        type="text"
+        value={value}
+        readOnly={!$isnew}
+        placeholder={placeholder}
+        {...rest}
+      />
       <div
         onClick={onClick}
         className={$isnew === "true" ? "button-add" : "button-delete"}>

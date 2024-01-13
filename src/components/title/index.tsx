@@ -1,9 +1,9 @@
-import {Container} from "./styles";
+import { Container } from "./styles";
 
 interface TitleProps {
-    title: string;
+  title: string;
 }
 
-export function Title({title}: TitleProps) {
-    return <Container>{title}</Container>;
+export function Title({ title }: TitleProps) {
+  return <Container>{title}</Container>;
 }

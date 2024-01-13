@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-display: flex;
-gap: .3rem;
+  display: flex;
+  gap: 0.3rem;
 
->span {
+  > span {
     font-size: 2rem;
     color: ${({ theme }) => theme.COLORS.RED};
-}
-`
-
+  }
+`;
