@@ -3,14 +3,26 @@ import { Tag } from "../Tag";
 import { Star } from "../stars";
 import { api } from "../../services/api";
 
-import { useState, useEffect } from "react";
-export interface CardFilmProps {
+import { useState, useEffect, Key } from "react";
+interface CardFilmProps {
   title: string;
+  data: number;
   description: string;
+  onClick?: () => void;
+}
+
+interface dataIdProps {
+  tags: any;
+  id: number;
+  rating?: {
+    0: {
+      stars: number;
+    };
+  };
 }
 
 export function CardFilm({ title, description, data, onClick }: CardFilmProps) {
-  const [dataId, setDataId] = useState(0);
+  const [dataId, setDataId] = useState<dataIdProps>({ tags: [], id: 0 });
 
   useEffect(() => {
     async function fetchNote() {
@@ -19,6 +31,8 @@ export function CardFilm({ title, description, data, onClick }: CardFilmProps) {
     }
     fetchNote();
   }, []);
+
+  console.log(dataId);
 
   return (
     <Container onClick={onClick}>
@@ -29,9 +43,11 @@ export function CardFilm({ title, description, data, onClick }: CardFilmProps) {
       <p>{description}</p>
       {dataId.tags && (
         <div className="tags">
-          {dataId.tags.map((tag) => (
-            <Tag title={tag.name} key={tag.id}/>
-          ))}
+          {dataId.tags.map(
+            (tag: { name: string; id: Key | null | undefined }) => (
+              <Tag title={tag.name} key={tag.id} />
+            )
+          )}
         </div>
       )}
     </Container>

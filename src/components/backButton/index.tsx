@@ -1,5 +1,9 @@
 import { Container } from "./styles";
 
-export function BackButton({ onClick}) {
+interface BackButtonProps {
+  onClick?: () => void;
+}
+
+export function BackButton({ onClick }: BackButtonProps) {
   return <Container onClick={onClick}>← Voltar</Container>;
 }
