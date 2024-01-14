@@ -28,8 +28,8 @@ interface userCreteProps {
 }
 
 export function Preview() {
-  const [data, setData] = useState<dataProps>([]);
-  const [userCreate, setUserCreate] = useState<userCreteProps>([]);
+  const [data, setData] = useState<dataProps | null>(null);
+  const [userCreate, setUserCreate] = useState<userCreteProps>({});
   const [deleteNote, setDeleteNote] = useState("");
   const params = useParams();
 
@@ -39,6 +39,8 @@ export function Preview() {
   function handleBack() {
     navigate(-1);
   }
+
+  console.log(data);
 
   async function handleDelete() {
     const confirm = window.confirm("Tem certeza que deseja excluir esta nota?");
@@ -67,12 +69,14 @@ export function Preview() {
 
   useEffect(() => {
     async function fetchUser() {
-      const responseUser = await api.get(`users/${data.user_id}`);
-      setUserCreate(responseUser.data);
-      if (data.user_id === user.id) {
-        setDeleteNote("Excluir nota");
-      } else {
-        setDeleteNote("");
+      if (data) {
+        const responseUser = await api.get(`users/${data.user_id}`);
+        setUserCreate(responseUser.data);
+        if (data.user_id === user.id) {
+          setDeleteNote("Excluir nota");
+        } else {
+          setDeleteNote("");
+        }
       }
     }
 
