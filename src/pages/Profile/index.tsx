@@ -6,7 +6,7 @@ import { FiCamera } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { api } from "../../services/api";
 
 import avatarPlaceholder from "../../assets/placeholder.jpg";
@@ -25,8 +25,11 @@ export function Profile() {
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
 
-  const [avatar, setAvatar] = useState(avatarUrl);
-  const [avatarFile, setAvatarFile] = useState(null);
+  const [avatar, setAvatar] = useState<string | null>(avatarUrl);
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
+
+  // const [avatar, setAvatar] = useState(avatarUrl);
+  // const [avatarFile, setAvatarFile] = useState(null);
 
   async function handleUpdate() {
     const updated = {
@@ -37,15 +40,19 @@ export function Profile() {
     };
     const userUpdate = Object.assign(user, updated);
 
-    await updateProfile({ user: userUpdate, avatarFile });
+    if (updateProfile) {
+      await updateProfile({ user: userUpdate, avatarFile });
+    }
   }
 
-  function handleChangeAvatar(event: { target: { files: any[] } }) {
-    const file = event.target.files[0];
-    setAvatarFile(file);
-
-    const imagePreview = URL.createObjectURL(file);
-    setAvatar(imagePreview);
+  function handleChangeAvatar(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files;
+    if (file && file.length > 0) {
+      const selectedFile = file[0];
+      setAvatarFile(selectedFile);
+      const imagePreview = URL.createObjectURL(selectedFile);
+      setAvatar(imagePreview);
+    }
   }
 
   return (
@@ -55,7 +62,7 @@ export function Profile() {
       </header>
       <Section>
         <Avatar>
-          <img src={avatar} alt="" />
+          {avatar && <img src={avatar} alt="" />}
           <label htmlFor="avatar">
             <FiCamera />
             <input type="file" id="avatar" onChange={handleChangeAvatar} />

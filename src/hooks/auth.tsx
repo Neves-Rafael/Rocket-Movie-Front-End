@@ -95,6 +95,7 @@ function AuthProvider({ children }: signInProps) {
 interface AuthData {
   signOut?: () => void;
   user?: any; // Substitua 'any' pelo tipo correto do objeto 'user'
+  updateProfile?: (params: { user?: any; avatarFile: File | null }) => Promise<void>;
 }
 
 function useAuth(): AuthData {
