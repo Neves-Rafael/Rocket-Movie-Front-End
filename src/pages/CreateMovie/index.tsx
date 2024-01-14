@@ -10,7 +10,7 @@ import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 export function CreateMovie() {
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
   const [newTag, setNewTag] = useState("");
 
   const [title, setTitle] = useState("");
