@@ -1,5 +1,5 @@
 import { Container, NewMovie, ScrollY, Search } from "./styles";
-import { CardFilm } from "../../../src/components/cardFilm/index.tsx";
+import { CardFilme } from "../../components/cardFilm";
 import { Button } from "../../components/button";
 import { FiPlus } from "react-icons/fi";
 import { Title } from "../../components/title";
@@ -82,7 +82,7 @@ export function Films() {
       </NewMovie>
       <ScrollY>
         {notes.map((note: noteProps) => (
-          <CardFilm
+          <CardFilme
             data={note.id}
             key={String(note.id)}
             title={note.title}
