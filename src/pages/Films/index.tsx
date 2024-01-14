@@ -1,5 +1,5 @@
 import { Container, NewMovie, ScrollY, Search } from "./styles";
-import { CardFilme } from "../../components/cardFilm";
+import { CardFilme } from "../../components/card";
 import { Button } from "../../components/button";
 import { FiPlus } from "react-icons/fi";
 import { Title } from "../../components/title";
