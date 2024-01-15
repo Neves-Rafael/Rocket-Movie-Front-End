@@ -32,7 +32,6 @@ export function CardFilme({ title, description, data, onClick }: CardFilmProps) 
     fetchNote();
   }, []);
 
-  console.log(dataId);
 
   return (
     <Container onClick={onClick}>

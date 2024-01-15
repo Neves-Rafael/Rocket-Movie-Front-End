@@ -44,7 +44,6 @@ export function Films() {
     async function fetchNotes() {
       const response = await api.get(`/notes?title=${search}`);
       setNotes(response.data);
-      console.log(response.data);
     }
     fetchNotes();
   }, [search]);

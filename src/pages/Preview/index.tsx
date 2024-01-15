@@ -40,7 +40,6 @@ export function Preview() {
     navigate(-1);
   }
 
-  console.log(data);
 
   async function handleDelete() {
     const confirm = window.confirm("Tem certeza que deseja excluir esta nota?");
