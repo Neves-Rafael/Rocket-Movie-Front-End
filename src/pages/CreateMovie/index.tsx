@@ -62,11 +62,13 @@ export function CreateMovie() {
         <Title title="Novo Filme"></Title>
         <div>
           <Input
+            type="text"
             placeholder="Titulo"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <Input
+            type="number"
             placeholder="Sua nota (de 0 a 5)"
             value={stars}
             onChange={(e) => setStars(e.target.value)}

@@ -29,6 +29,7 @@ export const Section = styled.section`
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
     padding: 1.6rem;
     min-height: 25rem;
+    color: ${({ theme }) => theme.COLORS.WHITE};
   }
 
   > h3 {
