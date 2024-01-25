@@ -38,7 +38,7 @@ export const NewMovie = styled.div`
 `;
 
 export const ScrollY = styled.div`
-  padding: 0 15%;
+  padding: 0 8rem 15%;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
