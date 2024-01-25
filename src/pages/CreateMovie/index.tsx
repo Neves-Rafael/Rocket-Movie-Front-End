@@ -20,6 +20,8 @@ export function CreateMovie() {
   const navigate = useNavigate();
 
   function handleAddTags() {
+    console.log(newTag);
+    if (newTag.length <= 2) return;
     setTags((prevState) => [...prevState, newTag]);
     setNewTag("");
   }
@@ -43,6 +45,10 @@ export function CreateMovie() {
 
     if (!stars) {
       return alert("Preencha o campo com a sua nota (de 0 a 5)");
+    }
+
+    if (tags.length <= 0) {
+      return alert("Adicione pelo menos um marcador");
     }
 
     if (newTag) {
@@ -93,7 +99,7 @@ export function CreateMovie() {
 
           <Mark
             $isnew="true"
-            placeholder="New tag"
+            placeholder="Nova Tag"
             onChange={(e) => setNewTag(e.target.value)}
             value={newTag}
             onClick={handleAddTags}
