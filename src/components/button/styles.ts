@@ -21,4 +21,10 @@ export const Container = styled.div`
     margin-top: 0.2rem;
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
+
+  @media (max-width: 768px) {
+    height: 4.6rem;
+    gap: 0;
+    padding-left: 1rem;
+  }
 `;

@@ -13,7 +13,7 @@ export const NewMovie = styled.div`
   margin-bottom: 3.8rem;
 
   > div {
-    margin-right: 1.7rem;
+    /* margin-right: 1.7rem; */
     width: 21rem;
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
@@ -25,6 +25,10 @@ export const NewMovie = styled.div`
 
   @media (max-width: 1100px) {
     padding: 0 5%;
+
+    :last-child {
+      width: 15rem;
+    }
 
     > a div {
       width: 15rem;
