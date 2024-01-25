@@ -24,6 +24,9 @@ export const Container = styled.div`
 
   .tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.8rem;
+    max-height: 5rem;
+    overflow-y: hidden;
   }
 `;
