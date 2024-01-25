@@ -22,7 +22,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1100px) {
     height: 4.6rem;
     gap: 0;
     padding-left: 1rem;

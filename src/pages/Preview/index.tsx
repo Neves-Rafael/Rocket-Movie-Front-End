@@ -40,7 +40,6 @@ export function Preview() {
     navigate(-1);
   }
 
-
   async function handleDelete() {
     const confirm = window.confirm("Tem certeza que deseja excluir esta nota?");
 
@@ -114,7 +113,7 @@ export function Preview() {
               ))}
             </div>
           )}
-          <p>{data.description}</p>
+          <p className="description">{data.description}</p>
         </Section>
       )}
     </Container>

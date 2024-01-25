@@ -21,7 +21,12 @@ interface dataIdProps {
   };
 }
 
-export function CardFilme({ title, description, data, onClick }: CardFilmProps) {
+export function CardFilme({
+  title,
+  description,
+  data,
+  onClick,
+}: CardFilmProps) {
   const [dataId, setDataId] = useState<dataIdProps>({ tags: [], id: 0 });
 
   useEffect(() => {
@@ -31,7 +36,6 @@ export function CardFilme({ title, description, data, onClick }: CardFilmProps) 
     }
     fetchNote();
   }, []);
-
 
   return (
     <Container onClick={onClick}>

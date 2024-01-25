@@ -18,7 +18,8 @@ export const Container = styled.div`
   > p {
     color: ${({ theme }) => theme.COLORS.GRAY_300};
     max-height: 10.9rem;
-    overflow-y: hidden;
+    word-wrap: break-word;
+    overflow: hidden;
   }
 
   .tags {

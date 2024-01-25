@@ -54,6 +54,11 @@ export const Section = styled.section`
   flex-direction: column;
   padding: 0 15%;
 
+  > .description {
+    word-wrap: break-word;
+    padding: 1rem 0 10rem;
+  }
+
   .movie {
     display: flex;
     align-items: center;

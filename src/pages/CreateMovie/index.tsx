@@ -22,6 +22,11 @@ export function CreateMovie() {
   function handleAddTags() {
     console.log(newTag);
     if (newTag.length <= 2) return;
+
+    if (newTag.length > 35) {
+      setNewTag("");
+      return alert("Tag muito grande!");
+    }
     setTags((prevState) => [...prevState, newTag]);
     setNewTag("");
   }
@@ -43,7 +48,8 @@ export function CreateMovie() {
       return alert("Preencha o campo 'Titulo'");
     }
 
-    if (!stars) {
+    if (!stars || Number(stars) < 0 || Number(stars) > 5) {
+      setStars("");
       return alert("Preencha o campo com a sua nota (de 0 a 5)");
     }
 
